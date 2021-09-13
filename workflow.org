@@ -1,0 +1,83 @@
+#+TITLE: Workflow
+
+* Purpose
+This file aims to document my overall workflow as part of my productivity system.
+
+I'm using org-mode, so my workflow is described through this lens, however others may find this useful conceptually in other apps and setups
+
+* Prerequisites
+You will need my [[http://github.com/m-dwyer/.doom.d/][doom emacs]] configuration first.  This contains important configuration for how I usee doom to implement my workflow, including capture templates, org agenda views etc
+
+* Structure
+My system revolves around three layers which work together in a relatively cohesive whole.  I say 'relative' in the sense that I have implemented this based on what makes sens to me, and I'm in the early stages of using this  -- with refinements being made as I stumble across pain points, issues, etc.  A lot of my implementation is also based on reading througt other people's configs, blogs around task management, planning etc in org-mode.
+
+The layers of my system, from top to bottom, move from more abstract to concrete
+
+** Layers
+*** Planning
+I like to plan out at different timeframes - yearly, monthly and weekly. This allows me to think about what I wish to achieve long, medium & short-term with time-sensitivity and a sense of urgency.  My planning files go in ~/org/plan/
+
+**** Yearly - a capture template to plan out each year
+- Overview section - I can think about my vision for the year and what I wish to achieve at a high level
+- Planning section -  I begin to look at /how/ I might begin to achieve my vision across the year, by looking at each quarter and deciding on focuses.
+- Review section - Here is where I undertake my yearly review.  How did I go?  Did I achieve what I set out to, again at a high level?  I intend to add stats to this section (e.g. with org-ql, clocktables, etc) so I can help inform the review process
+**** Monthly - a capture template to plan out each month
+- Overview section - thinking about my yearly & quarterly plan, which projects and tasks should I focus on for the month?  What am I hoping to achieve by end of month?
+- Planning section -  more concretely, what are my primary goals & focuses for the month?
+- Review section - Here is where I undertake my monthly review.  How did I go?  Did I achieve what I set out to?  I look at my clocktable for the month, see which tasks I worked on, and how long spent.  I am likely to add other stats here, such as which 'Areas' of life did I focus on - health & fitness, tech, etc -- likely grouped by tags.  My monthly review includes a checklist so I stick to a proper process
+**** Weekly - a capture template to plan out each week
+- Overview section - which kinds of individual tasks & projects should I be thinking about this week?  Any particular focus?  Are there likely to be tasks I can batch?
+- Planning section - A tree where I insert a daily plan (see below) for each day of the week
+- Review section - Where I do the all-important weekly review, marking off each item in a checklist.  I include clocked tasks for the week here in a table, allowing me to reflect on tasks I clocked into over the week.  I am likely to add further stats and useful data to this template to help me reflect on the week
+**** Daily - a capture template to plan out the day
+- Checklist - a simple checklist for my workflow/process, so I know at a meta level, what I need to be doing each day to help achieve my objectives
+
+*** Agenda
+org-agenda provides me with a flexible way of showing projects and stand-alone tasks against time.  I can see, at different timeframes, what I should be working on, what is coming up, and any extra tasks I can complete time permitting
+
+- Daily view
+  + Overdue tasks - overdue tasks that I should action ASAP, or reschedule if circumstances change
+  + Scheduled tasks  - tasks scheduled for today along with their specific time.  What should I be working on *right now*?  I can clock in/out of tasks from here, to keep a record of time spent
+  + Habits - show any recurring tasks marked as 'habits', and whether or not I've 'broken the chain'.  An encouragement and reminder each day to engage in particular activity to form or reinforce  a  habit
+  + Low effort - any tasks where I have logged an Effort of 15 minutes or less.  I look to this list if I have free time in the day for quick wins
+  + Next tasks - anything I've marked as 'next' is actional (a 'next action', taken from GTD) and shows here as a catch all if I still have free time in the day
+- Week view
+  + Overdue tasks - tasks I should action ASAP, or reschedule if possibe
+  + Individual tasks - stand-alone tasks I can action, not related to a project
+  + Next tasks - any other task, such as from projects, where the item is actionable without any dependencies
+
+*** Files
+The underlying /storage/ where I record actionable items / projects / things:
+
+- inbox.org - My inbox in the GTD sense where I capture basically anything throughout my day, ready to be moved into the appropriate location (org refiling) when time permits
+- tasks.org - here is  where I capture /individual/ tasks (TODOs in org-mode).   These are smallish actionable tasks which can be completed on their own, with no dependencies
+- projects/ - a directory where I capture /projects/.  A project is a larger piece of work that moves towards a goal, and is comprised of /multiple/ tasks, all of which must be completed -- and often with dependencies between one another.  Each  project is stored in a separate file in this directory, reflecting the fact projects are larger, may have notes, etc
+- recurring.org - here I capture individual tasks that are /recurring/ in nature.   This includes habits I am forming/reinforcing, or other tasks I need to do on a regular basis
+- someday.org - a bit of  a dumping ground for ideas and things I may look at in the future, but not on my immediate radar.  These are reminders of something I should reconsider in the future when time permits, and I have a clearer idea of how to action (may morph into a task or a project)
+
+
+* Process
+This section aims to document how the above fits together, and how I use the system.
+
+** Yearly
+I create a yearly file using the year planner template.  I fill out the overview, and enter a high level plan into the Planning section.  I think about and document in English (not scheduling) where in the year I might achieve each goal
+
+** Monthly
+End of month, I look at the Planning I documented, and undertake a Monthly Review as per the Review section.  This may help inform my planning for the following month.
+
+For the following month, I create a new monthly file using the month planner template.  I fill out the overview, and under Planning, I enter which goals I am focusing on for the month, and associated tasks & projects that move toward reaching those goals.  Again, I am not scheduling anything here -- but documenting intention
+
+** Weekly
+End of each week, I review the current week planner file.  I compare the Planning section with stats shown in review and the agenda, and go through the weekly review checklist.
+
+For the next week, I create a new weekly planner using the relevant template.  I look at which items I need to look at this week, and document these and how this week fits into the overall month commitments made.
+
+** Daily
+I use the daily template to add a checklist for today to the current weekly file.  I then go through the checklist, ensuring I complete each item.   These items are not TODO items, nor are they habits -- but they are meta-tasks to help me stick to a daily process with my system
+
+* Future State
+ My ideas and future improvements:
+
+ - Add goals as a specific GOAL todo keyword, and an appropriate agenda view.  Similar to tasks/projects, it would be nice to explicitly schedule & set deadlines around goals, and see these on the agenda.
+ - Add projects as a specific PROJECT todo keyword.  Likewise, I should set deadlines around projects and reprersent these in the agenda somehow
+ - For review sections on weekly, monthly and yearly templates, show the /types/ of tasks I worked on, how many tasks actioned, how many completed.  Ideally, I need to show tags and goals of these tasks to see if I was working on the correct things compared to what I had planned for the timeframe

@@ -1,0 +1,8 @@
+#+TITLE: Inbox
+
+* Purpose
+
+File used to easily capture any ideas, thoughts, links, tasks, etc over the day.  This is then regularly reviewed, and items refiled to the appropriate location
+
+* Inbox
+** First item

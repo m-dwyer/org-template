@@ -1,0 +1,9 @@
+#+TITLE: Tasks
+
+* Purpose
+
+Collection of logged one-off tasks that do not belong to a particular project
+
+* Tasks
+** TODO Do the thing
+** TODO Do some other thing

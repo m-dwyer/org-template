@@ -1,0 +1,31 @@
+#+TITLE: Goals
+
+* Purpose
+
+#+BEGIN_QUOTE
+"Goals are about the results you want to achieve.  Systems are about the processes that lead to those results" ~ James Clear
+#+END_QUOTE
+
+* Statistics
+#+BEGIN_SRC elisp :results replace :hlines yes
+(defun get-tag-counts ()
+  (let ((all-tags '()))
+    (org-map-entries
+     (lambda ()
+       (setq all-tags (append all-tags (org-get-tags)))))
+
+    ;; now get counts
+    (cl-loop for tag in (-uniq all-tags)
+      collect (cons tag (cl-count tag all-tags :test 'string=)))))
+
+(mapconcat
+ (lambda (x) (format "| %s | %s |" (car x) (cdr x)))
+ (get-tag-counts)
+ "\n")
+#+END_SRC
+
+
+
+* Goals
+** GOAL My first goal :G@first_goal:A@some_area:
+** GOAL My second goal :G@second_goal:@some_area:
